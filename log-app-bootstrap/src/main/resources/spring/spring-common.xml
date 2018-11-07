@@ -9,7 +9,7 @@
 
     <!-- 向spring注册AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、
     PersistenceAnnotationBeanPostProcessor 以及 RequiredAnnotationBeanPostProcessor -->
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
 
     <!-- 定义aspectj -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>

@@ -1,5 +1,6 @@
 package com.gg.applog.bootstrap;
 
+import com.gg.applog.util.SpringContainerHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -13,15 +14,16 @@ public class Bootstrap {
     private static final Logger LOG = LoggerFactory.getLogger(Bootstrap.class);
 
     public static void main(String[] args) {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+        GenericXmlApplicationContext genericXmlApplicationContext = new GenericXmlApplicationContext();
         try {
             LOG.info("log-app bootstrapping...");
-            ctx.load("applicationContext.xml");
-            ctx.refresh();
+            genericXmlApplicationContext.load("applicationContext.xml");
+            genericXmlApplicationContext.refresh();
+            SpringContainerHolder.applicationContext = genericXmlApplicationContext;
             LOG.info("log-app finish bootstrap.");
         }
         catch (BeansException | IllegalStateException e) {
-            ctx.close();
+            genericXmlApplicationContext.close();
             LOG.error("fail bootstrap log-app!!!", e);
             System.exit(1);
         }
