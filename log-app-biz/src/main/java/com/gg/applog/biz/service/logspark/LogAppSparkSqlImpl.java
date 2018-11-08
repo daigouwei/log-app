@@ -12,15 +12,15 @@ import java.util.Properties;
  */
 @Service
 public class LogAppSparkSqlImpl {
-    @Value("${mysql.driver}")
+    @Value ("${mysql.driver}")
     private String driver;
-    @Value("${mysql.url}")
+    @Value ("${mysql.url}")
     private String url;
-    @Value("${mysql.username}")
+    @Value ("${mysql.username}")
     private String username;
-    @Value("${mysql.password")
+    @Value ("${mysql.password")
     private String password;
-    @Value("${mysql.table}")
+    @Value ("${mysql.table}")
     private String table;
     private Properties connProperties;
 

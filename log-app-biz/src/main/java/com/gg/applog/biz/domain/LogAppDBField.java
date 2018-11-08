@@ -1,13 +1,19 @@
 package com.gg.applog.biz.domain;
 
+import scala.Serializable;
+
 /**
  * @author daigouwei
  * @date 2018/11/7
  */
-public class LogAppDBField {
+public class LogAppDBField implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String appId;
     private String userId;
     private String profile;
+
+    public LogAppDBField() {
+    }
 
     public String getAppId() {
         return appId;
@@ -36,6 +42,6 @@ public class LogAppDBField {
     @Override
     public String toString() {
         return "LogAppDBField{" + "appId='" + appId + '\'' + ", userId='" + userId + '\'' + ", profile='" + profile
-                + '\'' + '}';
+            + '\'' + '}';
     }
 }

@@ -1,9 +1,12 @@
 package com.gg.applog.biz.domain;
 
+import scala.Serializable;
+
 /**
  * @author daigouwei
  */
-public class LogAppParserDetail {
+public class LogAppParserDetail implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String userPkId;
     private String cpid;
     private String time;
@@ -11,6 +14,9 @@ public class LogAppParserDetail {
     private String prodId;
     private String catCode;
     private String keyword;
+
+    public LogAppParserDetail() {
+    }
 
     public String getUserPkId() {
         return userPkId;
@@ -71,7 +77,7 @@ public class LogAppParserDetail {
     @Override
     public String toString() {
         return "LogAppParserDetail{" + "userPkId='" + userPkId + '\'' + ", cpid='" + cpid + '\'' + ", time='" + time
-                + '\'' + ", Ip='" + Ip + '\'' + ", prodId='" + prodId + '\'' + ", catCode='" + catCode + '\''
-                + ", keyword='" + keyword + '\'' + '}';
+            + '\'' + ", Ip='" + Ip + '\'' + ", prodId='" + prodId + '\'' + ", catCode='" + catCode + '\''
+            + ", keyword='" + keyword + '\'' + '}';
     }
 }
