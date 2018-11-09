@@ -28,7 +28,7 @@ public class LogAppInit extends BaseService implements SmartLifecycle {
     @Override
     public void start() {
         LOG.info("Spring Bean全部加载完毕，开始运行主任务...");
-        logSparkDriverImpl.handleAppNginxLog();
+        logSparkDriverImpl.handleAppLog();
     }
 
     @Override
