@@ -43,12 +43,18 @@ public class LogSparkDriverImpl extends BaseService {
         JavaSparkContext sparkContext = initSpark();
         JavaPairRDD<String, LogAppDBField> logAppDBFieldJavaPairRDD = importAndHandleLog(sparkContext, "./log-app-biz/src/resources/nginxlog/*");
         store2DB(sparkContext, logAppDBFieldJavaPairRDD);
+        stopSpark(sparkContext);
         LOG.info("over!!!!!!");
     }
 
     private JavaSparkContext initSpark(){
         LOG.info("Spark init...");
-        return new JavaSparkContext(new SparkConf().setMaster("local").setAppName("APP NGINX LOG"));
+        return new JavaSparkContext(new SparkConf().setMaster("local").setAppName("APP LOG"));
+    }
+
+    private void stopSpark(JavaSparkContext sparkContext) {
+        LOG.info("Spark stop...");
+        sparkContext.stop();
     }
 
     private JavaPairRDD<String, LogAppDBField> importAndHandleLog(JavaSparkContext sparkContext, String logPath){
@@ -97,7 +103,8 @@ public class LogSparkDriverImpl extends BaseService {
         stuctFields.add(DataTypes.createStructField("profile", DataTypes.StringType, true));
         StructType structType = DataTypes.createStructType(stuctFields);
         //第三步：基于已有的元数据以及RDD<Row>来构建DataFrame
-         Dataset<Row> logAppDBFieldDF = new SQLContext(sparkContext).createDataFrame(logAppDBFieldRowJavaRDD, structType);
+        SQLContext sqlContext = new SQLContext(sparkContext);
+        Dataset<Row> logAppDBFieldDF = sqlContext.createDataFrame(logAppDBFieldRowJavaRDD, structType);
          //第四步：将数据写入到表中
         logAppDBFieldDF.write().mode("append").jdbc(logAppSparkSqlImpl.getUrl(), logAppSparkSqlImpl.getTable(), logAppSparkSqlImpl.getConnProperties());
     }
