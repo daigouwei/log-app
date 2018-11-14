@@ -2,6 +2,7 @@ package com.gg.applog.biz.service.logspark;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import scala.Serializable;
 
 import javax.annotation.PostConstruct;
 import java.util.Properties;
@@ -11,14 +12,14 @@ import java.util.Properties;
  * @date 2018/11/8
  */
 @Service
-public class LogAppSparkSqlImpl {
+public class LogAppSparkSqlImpl implements Serializable {
     @Value ("${mysql.driver}")
     private String driver;
     @Value ("${mysql.url}")
     private String url;
     @Value ("${mysql.username}")
     private String username;
-    @Value ("${mysql.password")
+    @Value ("${mysql.password}")
     private String password;
     @Value ("${mysql.table}")
     private String table;

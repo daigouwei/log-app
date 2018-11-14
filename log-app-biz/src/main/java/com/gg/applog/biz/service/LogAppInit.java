@@ -1,5 +1,6 @@
 package com.gg.applog.biz.service;
 
+import com.gg.applog.biz.service.logspark.LogSparkDriverImpl2;
 import com.gg.applog.biz.service.logspark.LogSparkDriverImpl;
 import com.gg.applog.common.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import org.springframework.stereotype.Service;
 public class LogAppInit extends BaseService implements SmartLifecycle {
     @Autowired
     private LogSparkDriverImpl logSparkDriverImpl;
+
+    @Autowired
+    private LogSparkDriverImpl2 logSparkDriverImpl2;
 
     @Override
     public boolean isAutoStartup() {

@@ -7,7 +7,6 @@ import scala.Serializable;
  * @date 2018/11/7
  */
 public class LogAppDBField implements Serializable {
-    private static final long serialVersionUID = 1L;
     private String appId;
     private String userId;
     private String profile;

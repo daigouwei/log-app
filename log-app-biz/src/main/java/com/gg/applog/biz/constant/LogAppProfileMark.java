@@ -7,7 +7,6 @@ import scala.Serializable;
  * @date 2018/11/7
  */
 public class LogAppProfileMark implements Serializable {
-    private static final long serialVersionUID = 1L;
     public static final String PROFILE_PROD_ID = "!!";
     public static final String PROFILE_CAT_CODE = "##";
     public static final String PROFILE_KEYWORD = "@@";

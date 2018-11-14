@@ -4,13 +4,14 @@ import com.gg.applog.biz.domain.LogAppParserDetail;
 import com.gg.applog.common.service.BaseService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import scala.Serializable;
 
 /**
  * @author daigouwei
  * @date 2018/11/1
  */
 @Service
-public class LogAppHistoryParserImpl extends BaseService {
+public class LogAppHistoryParserImpl extends BaseService implements Serializable{
     public LogAppParserDetail parseLog(String logLine) {
         return parseDetailLog(logLine);
     }

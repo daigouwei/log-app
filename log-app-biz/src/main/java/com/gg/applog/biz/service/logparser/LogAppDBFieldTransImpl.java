@@ -5,13 +5,14 @@ import com.gg.applog.biz.domain.LogAppDBField;
 import com.gg.applog.biz.domain.LogAppParserDetail;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import scala.Serializable;
 
 /**
  * @author daigouwei
  * @date 2018/11/8
  */
 @Service
-public class LogAppDBFieldTransImpl {
+public class LogAppDBFieldTransImpl implements Serializable{
     public LogAppDBField transLogParserDetail2DBField(LogAppParserDetail logAppParserDetail) {
         if (null == logAppParserDetail) {
             return null;

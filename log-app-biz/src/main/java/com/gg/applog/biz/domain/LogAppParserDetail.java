@@ -6,7 +6,6 @@ import scala.Serializable;
  * @author daigouwei
  */
 public class LogAppParserDetail implements Serializable {
-    private static final long serialVersionUID = 1L;
     private String userPkId;
     private String cpid;
     private String time;
